@@ -25,6 +25,7 @@ body {
   --calcite-color-border-2: #e8e1dc;
   --calcite-color-border-3: #e6ddd1;
   --calcite-color-border-input: #a1a19e;
+  --calcite-color-focus: var(--calcite-brand-color);
 }
 
 body.calcite-mode-dark {
@@ -51,6 +52,7 @@ body.calcite-mode-dark {
   --calcite-color-border-2: #40383a;
   --calcite-color-border-3: #47423e;
   --calcite-color-border-input: #4b4245;
+  --calcite-color-focus: var(--calcite-brand-color);
 }
 
 /* Esri Developer & Technology Summit Demo Template */
