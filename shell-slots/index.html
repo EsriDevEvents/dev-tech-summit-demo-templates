@@ -1,73 +1,122 @@
 <!doctype html>
 <html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="initial-scale=1,maximum-scale=1,user-scalable=no"
+    />
+    <title>
+      2026 Esri Developer & Technology Summit - Designing Apps with Calcite
+      Design System
+    </title>
 
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no" />
-  <title>2025 Esri Developer & Technology Summit - Designing Apps with Calcite Design System</title>
+    <!-- Calcite import -->
+    <script
+      type="module"
+      src="https://js.arcgis.com/calcite-components/3.3.3/calcite.esm.js"
+    ></script>
 
-  <!-- Calcite import -->
-  <script type="module" src="https://js.arcgis.com/calcite-components/3.2.1/calcite.esm.js"></script>
+    <!-- ArcGIS Maps SDK for JavaScript imports -->
+    <script src="https://js.arcgis.com/4.33/"></script>
+    <link
+      id="jsapi-mode-light"
+      rel="stylesheet"
+      href="https://js.arcgis.com/4.33/esri/themes/light/main.css"
+    />
+    <link
+      disabled
+      id="jsapi-mode-dark"
+      rel="stylesheet"
+      href="https://js.arcgis.com/4.33/esri/themes/dark/main.css"
+    />
+    <script
+      type="module"
+      src="https://js.arcgis.com/map-components/4.33/arcgis-map-components.esm.js"
+    ></script>
 
-  <!-- ArcGIS Maps SDK for JavaScript imports -->
-  <script src="https://js.arcgis.com/4.33/"></script>
-  <link id="jsapi-mode-light" rel="stylesheet" href="https://js.arcgis.com/4.33/esri/themes/light/main.css" />
-  <link disabled id="jsapi-mode-dark" rel="stylesheet" href="https://js.arcgis.com/4.33/esri/themes/dark/main.css" />
-  <script type="module" src="https://js.arcgis.com/map-components/4.33/arcgis-map-components.esm.js"></script>
+    <!-- Demo imports -->
+    <link rel="stylesheet" href="./style.css" />
+  </head>
 
-  <!-- Demo imports -->
-  <link rel="stylesheet" href="./style.css" />
-</head>
+  <body>
+    <calcite-shell>
+      <calcite-shell-panel
+        slot="panel-start"
+        position="start"
+        id="shell-panel-start"
+      >
+        <calcite-action-bar slot="action-bar">
+          <calcite-action text="Save" icon="save" indicator></calcite-action>
+          <calcite-action active icon="map" text="Map"></calcite-action>
+          <calcite-action icon="layer" text="Layer"></calcite-action>
+        </calcite-action-bar>
+        <calcite-panel
+          heading="panel-start"
+          description="Slot name"
+          id="panel-start"
+        >
+          <calcite-notice width="full" open>
+            <div slot="title">Panel start</div>
+          </calcite-notice>
+        </calcite-panel>
+      </calcite-shell-panel>
 
-<body>
-  <calcite-shell>
-    <calcite-shell-panel slot="panel-start" position="start" id="shell-panel-start">
-      <calcite-action-bar slot="action-bar">
-        <calcite-action text="Save" icon="save" indicator></calcite-action>
-        <calcite-action active icon="map" text="Map"></calcite-action>
-        <calcite-action icon="layer" text="Layer"></calcite-action>
-      </calcite-action-bar>
-      <calcite-panel heading="panel-start" description="Slot name" id="panel-start">
+      <calcite-shell-panel slot="panel-end" position="end" id="shell-panel-end">
+        <calcite-action-bar slot="action-bar">
+          <calcite-action text="Save" icon="save" indicator></calcite-action>
+          <calcite-action active icon="map" text="Map"></calcite-action>
+          <calcite-action icon="layer" text="Layer"></calcite-action>
+        </calcite-action-bar>
+        <calcite-panel
+          heading="panel-end"
+          description="Slot name"
+          id="panel-start"
+        >
+          <calcite-notice width="full" open>
+            <div slot="title">Panel end</div>
+          </calcite-notice>
+        </calcite-panel>
+      </calcite-shell-panel>
+
+      <calcite-shell-panel
+        slot="panel-top"
+        position="end"
+        id="shell-panel-top"
+        layout="horizontal"
+      >
+        <calcite-panel heading="panel-top" description="Slot name">
+          <calcite-notice width="full" open>
+            <div slot="title">Panel top</div>
+          </calcite-notice>
+        </calcite-panel>
+      </calcite-shell-panel>
+
+      <calcite-shell-panel
+        slot="panel-bottom"
+        position="start"
+        id="shell-panel-bottom"
+        layout="horizontal"
+      >
+        <calcite-panel
+          heading="panel-bottom"
+          description="Slot name"
+          id="panel-start"
+        >
+          <calcite-notice width="full" open>
+            <div slot="title">Panel bottom</div>
+          </calcite-notice>
+        </calcite-panel>
+      </calcite-shell-panel>
+      <calcite-panel
+        heading="default / unnamed"
+        description="Slot name"
+        mode="calcite-mode-dark"
+      >
         <calcite-notice width="full" open>
-          <div slot="title">Panel start</div>
+          <div slot="title">Default content</div>
         </calcite-notice>
       </calcite-panel>
-    </calcite-shell-panel>
-
-    <calcite-shell-panel slot="panel-end" position="end" id="shell-panel-end">
-      <calcite-action-bar slot="action-bar">
-        <calcite-action text="Save" icon="save" indicator></calcite-action>
-        <calcite-action active icon="map" text="Map"></calcite-action>
-        <calcite-action icon="layer" text="Layer"></calcite-action>
-      </calcite-action-bar>
-      <calcite-panel heading="panel-end" description="Slot name" id="panel-start">
-        <calcite-notice width="full" open>
-          <div slot="title">Panel end</div>
-        </calcite-notice>
-      </calcite-panel>
-    </calcite-shell-panel>
-
-    <calcite-shell-panel slot="panel-top" position="end" id="shell-panel-top" layout="horizontal">
-      <calcite-panel heading="panel-top" description="Slot name">
-        <calcite-notice width="full" open>
-          <div slot="title">Panel top</div>
-        </calcite-notice>
-      </calcite-panel>
-    </calcite-shell-panel>
-
-    <calcite-shell-panel slot="panel-bottom" position="start" id="shell-panel-bottom" layout="horizontal">
-      <calcite-panel heading="panel-bottom" description="Slot name" id="panel-start">
-        <calcite-notice width="full" open>
-          <div slot="title">Panel bottom</div>
-        </calcite-notice>
-      </calcite-panel>
-    </calcite-shell-panel>
-    <calcite-panel heading="default / unnamed" description="Slot name" mode="calcite-mode-dark">
-      <calcite-notice width="full" open>
-        <div slot="title">Default content</div>
-      </calcite-notice>
-    </calcite-panel>
-  </calcite-shell>
-</body>
-
+    </calcite-shell>
+  </body>
 </html>

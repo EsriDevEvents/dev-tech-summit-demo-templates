@@ -19,7 +19,7 @@ calcite-shell-panel[slot="panel-start"] calcite-panel {
   border-top: 0;
 }
 
-calcite-action-pad {
+calcite-action-bar {
   margin-inline-end: 0.5rem;
 }
 

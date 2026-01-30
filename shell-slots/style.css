@@ -11,7 +11,7 @@ calcite-navigation-logo {
   --calcite-navigation-logo-heading-color: var(--calcite-color-brand);
 }
 
-calcite-action-pad {
+calcite-action-bar {
   margin-inline-end: 0.5rem;
 }
 
