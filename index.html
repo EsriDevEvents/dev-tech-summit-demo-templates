@@ -11,28 +11,8 @@
     </title>
 
     <!-- Calcite import -->
-    <script
-      type="module"
-      src="https://js.arcgis.com/calcite-components/3.3.3/calcite.esm.js"
-    ></script>
-
     <!-- ArcGIS Maps SDK for JavaScript imports -->
-    <script src="https://js.arcgis.com/4.33/"></script>
-    <link
-      id="jsapi-mode-light"
-      rel="stylesheet"
-      href="https://js.arcgis.com/4.33/esri/themes/light/main.css"
-    />
-    <link
-      disabled
-      id="jsapi-mode-dark"
-      rel="stylesheet"
-      href="https://js.arcgis.com/4.33/esri/themes/dark/main.css"
-    />
-    <script
-      type="module"
-      src="https://js.arcgis.com/map-components/4.33/arcgis-map-components.esm.js"
-    ></script>
+    <script type="module" src="https://jsdev.arcgis.com/5.0/"></script>
 
     <!-- Demo imports -->
     <script src="./app.js" defer></script>
@@ -50,19 +30,6 @@
           heading="Calcite Demo Layouts"
           description="2026 Esri Developer & Technology Summit"
         ></calcite-navigation-logo>
-        <calcite-tooltip
-          placement="bottom"
-          reference-element="toggle-mode"
-          slot="content-end"
-          >Toggle mode</calcite-tooltip
-        >
-        <calcite-tooltip
-          placement="bottom"
-          reference-element="toggle-modal"
-          close-on-click
-          slot="content-end"
-          >About this application</calcite-tooltip
-        >
       </calcite-navigation>
       <div>
         <calcite-notice width="full" open>
