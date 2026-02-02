@@ -1,60 +1,84 @@
 <html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="initial-scale=1,maximum-scale=1,user-scalable=no"
+    />
+    <title>
+      2026 Esri Developer & Technology Summit - Designing Apps with Calcite
+      Design System
+    </title>
 
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no" />
-  <title>2025 Esri Developer & Technology Summit - Designing Apps with Calcite Design System</title>
+    <!-- Calcite import -->
+    <!-- ArcGIS Maps SDK for JavaScript imports -->
+    <script type="module" src="https://jsdev.arcgis.com/5.0/"></script>
 
-  <!-- Calcite import -->
-  <script type="module" src="https://js.arcgis.com/calcite-components/3.2.1/calcite.esm.js"></script>
+    <!-- Demo imports -->
+    <script src="./app.js" defer></script>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
 
-  <!-- ArcGIS Maps SDK for JavaScript imports -->
-  <script src="https://js.arcgis.com/4.33/"></script>
-  <link id="jsapi-mode-light" rel="stylesheet" href="https://js.arcgis.com/4.33/esri/themes/light/main.css" />
-  <link disabled id="jsapi-mode-dark" rel="stylesheet" href="https://js.arcgis.com/4.33/esri/themes/dark/main.css" />
-  <script type="module" src="https://js.arcgis.com/map-components/4.33/arcgis-map-components.esm.js"></script>
-
-  <!-- Demo imports -->
-  <script src="./app.js" defer></script>
-  <link rel="stylesheet" href="./style.css" />
-</head>
-
-<body>
-  <calcite-shell>
-    <calcite-navigation slot="header" id="nav">
-      <calcite-navigation-logo icon="code" href="#" alt="Application logo" slot="logo" heading="Calcite Demo Layouts"
-        description="2025 Esri Developer & Technology Summit"></calcite-navigation-logo>
-      <calcite-tooltip placement="bottom" reference-element="toggle-mode" slot="content-end">Toggle
-        mode</calcite-tooltip>
-      <calcite-tooltip placement="bottom" reference-element="toggle-modal" close-on-click slot="content-end">About this
-        application</calcite-tooltip>
-    </calcite-navigation>
-    <div>
-      <calcite-notice width="full" open>
-        <div slot="title">About this resource</div>
-        <div slot="message">
-          These are example applications you can use to get started building out great demonstrations. Use them right
-          out
-          of the box, or
-          take portions as inspiration.
+  <body>
+    <calcite-shell>
+      <calcite-navigation slot="header" id="nav">
+        <calcite-navigation-logo
+          icon="code"
+          href="#"
+          alt="Application logo"
+          slot="logo"
+          heading="Calcite Demo Layouts"
+          description="2026 Esri Developer & Technology Summit"
+        ></calcite-navigation-logo>
+      </calcite-navigation>
+      <div>
+        <calcite-notice width="full" open>
+          <div slot="title">About this resource</div>
+          <div slot="message">
+            These are example applications you can use to get started building
+            out great demonstrations. Use them right out of the box, or take
+            portions as inspiration.
+          </div>
+        </calcite-notice>
+        <div class="tile-container">
+          <calcite-tile
+            href="./shell-slots/"
+            icon="add-in"
+            heading="Shell Slots"
+            description="Shell + Shell Panel Scaffold"
+          ></calcite-tile>
+          <calcite-tile
+            href="./app-map/"
+            icon="clustering"
+            heading="Map 1"
+            description="Shell Panel + Map"
+          ></calcite-tile>
+          <calcite-tile
+            href="./app-map-2/"
+            icon="image-layer"
+            heading="Map 2"
+            description="Shell Panel + Map, Themed"
+          ></calcite-tile>
+          <calcite-tile
+            href="./app-dashboard/"
+            icon="viewshed"
+            heading="Dashboard 1"
+            description="Panel Dashboard + Map"
+          ></calcite-tile>
+          <calcite-tile
+            href="./app-dashboard-2/"
+            icon="classify-pixels"
+            heading="Dashboard 2"
+            description="Panel Dashboard + Map, Themed"
+          ></calcite-tile>
+          <calcite-tile
+            href="./app-showcase-frame/"
+            icon="footprint"
+            heading="Showcase frame"
+            description="A layout for showing an application"
+          ></calcite-tile>
         </div>
-      </calcite-notice>
-      <div class="tile-container">
-        <calcite-tile href="./shell-slots/" icon="add-in" heading="Shell Slots"
-          description="Shell + Shell Panel Scaffold"></calcite-tile>
-        <calcite-tile href="./app-map/" icon="clustering" heading="Map 1"
-          description="Shell Panel + Map"></calcite-tile>
-        <calcite-tile href="./app-map-2/" icon="image-layer" heading="Map 2"
-          description="Shell Panel + Map, Themed"></calcite-tile>
-        <calcite-tile href="./app-dashboard/" icon="viewshed" heading="Dashboard 1"
-          description="Panel Dashboard + Map"></calcite-tile>
-        <calcite-tile href="./app-dashboard-2/" icon="classify-pixels" heading="Dashboard 2"
-          description="Panel Dashboard + Map, Themed"></calcite-tile>
-        <calcite-tile href="./app-showcase-frame/" icon="footprint" heading="Showcase frame"
-          description="A layout for showing an application"></calcite-tile>
       </div>
-    </div>
-  </calcite-shell>
-</body>
-
+    </calcite-shell>
+  </body>
 </html>

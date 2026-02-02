@@ -1,100 +1,166 @@
 <!doctype html>
 <html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="initial-scale=1,maximum-scale=1,user-scalable=no"
+    />
+    <title>
+      2026 Esri Developer & Technology Summit - Designing Apps with Calcite
+      Design System
+    </title>
 
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no" />
-  <title>2025 Esri Developer & Technology Summit - Designing Apps with Calcite Design System</title>
+    <!-- Calcite import -->
+    <!-- ArcGIS Maps SDK for JavaScript imports -->
+    <script type="module" src="https://jsdev.arcgis.com/5.0/"></script>
 
-  <!-- Calcite import -->
-  <script type="module" src="https://js.arcgis.com/calcite-components/3.2.1/calcite.esm.js"></script>
+    <!-- Demo imports -->
+    <script src="./app.js" defer></script>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
 
-  <!-- ArcGIS Maps SDK for JavaScript imports -->
-  <script src="https://js.arcgis.com/4.33/"></script>
-  <link disabled id="jsapi-mode-dark" rel="stylesheet" href="https://js.arcgis.com/4.33/esri/themes/dark/main.css" />
-  <script type="module" src="https://js.arcgis.com/map-components/4.33/arcgis-map-components.esm.js"></script>
-
-  <!-- Demo imports -->
-  <script src="./app.js" defer></script>
-  <link rel="stylesheet" href="./style.css" />
-</head>
-
-<body>
-  <calcite-shell class="calcite-mode-light">
-    <calcite-navigation navigation-action slot="header" id="nav">
-      <calcite-navigation-logo href="#" icon="footprint" alt="Application logo" slot="logo"
-        heading="My demo application" description="Esri Developer & Technology Summit"></calcite-navigation-logo>
-      <calcite-action-pad layout="horizontal" expand-disabled slot="content-end">
-        <calcite-action id="toggle-modal" text="About this application" icon="information"></calcite-action>
-      </calcite-action-pad>
-      <calcite-tooltip placement="bottom" reference-element="toggle-modal" close-on-click slot="content-end">About this
-        application</calcite-tooltip>
-    </calcite-navigation>
-
-    <calcite-shell content-behind class="example-shell calcite-mode-dark">
-      <calcite-navigation slot="header">
-        <calcite-navigation-logo thumbnail="./images/logo.svg" alt="Application logo" slot="logo"
-          heading="Alternative Fuel Stations"></calcite-navigation-logo>
-        <calcite-tooltip placement="bottom" reference-element="toggle-modal" close-on-click slot="content-end">About
-          this application</calcite-tooltip>
-        <calcite-navigation-user slot="user" full-name="Sample user" username="map_fan_123"></calcite-navigation-user>
+  <body>
+    <calcite-shell class="calcite-mode-light">
+      <calcite-navigation navigation-action slot="header" id="nav">
+        <calcite-navigation-logo
+          href="#"
+          icon="footprint"
+          alt="Application logo"
+          slot="logo"
+          heading="My demo application"
+          description="Esri Developer & Technology Summit"
+        ></calcite-navigation-logo>
+        <calcite-action-bar
+          layout="horizontal"
+          expand-disabled
+          slot="content-end"
+        >
+          <calcite-action
+            id="toggle-modal"
+            text="About this application"
+            icon="information"
+          ></calcite-action>
+        </calcite-action-bar>
+        <calcite-tooltip
+          placement="bottom"
+          reference-element="toggle-modal"
+          close-on-click
+          slot="content-end"
+          >About this application</calcite-tooltip
+        >
       </calcite-navigation>
 
-      <arcgis-map item-id="d5dda743788a4b0688fe48f43ae7beb9"> </arcgis-map>
+      <calcite-shell content-behind class="example-shell calcite-mode-dark">
+        <calcite-navigation slot="header">
+          <calcite-navigation-logo
+            thumbnail="./images/logo.svg"
+            alt="Application logo"
+            slot="logo"
+            heading="Alternative Fuel Stations"
+          ></calcite-navigation-logo>
+          <calcite-tooltip
+            placement="bottom"
+            reference-element="toggle-modal"
+            close-on-click
+            slot="content-end"
+            >About this application</calcite-tooltip
+          >
+          <calcite-navigation-user
+            slot="user"
+            full-name="Sample user"
+            username="map_fan_123"
+          ></calcite-navigation-user>
+        </calcite-navigation>
 
-      <calcite-alert open icon="effects" slot="alerts">
-        <div slot="title">A slotted alert within the showcased Calcite Shell</div>
-        <div slot="message">Welcome to beautiful Palm Springs!</div>
-      </calcite-alert>
+        <arcgis-map item-id="d5dda743788a4b0688fe48f43ae7beb9"> </arcgis-map>
+
+        <calcite-alert open icon="effects" slot="alerts">
+          <div slot="title">
+            A slotted alert within the showcased Calcite Shell
+          </div>
+          <div slot="message">Welcome to beautiful Palm Springs!</div>
+        </calcite-alert>
+      </calcite-shell>
     </calcite-shell>
-  </calcite-shell>
 
-  <!-- Demo template interactive elements -->
-  <calcite-dialog modal id="modal" heading="About this application">
-    <div>
-      <calcite-notice open>
-        <span slot="title">This demonstration application is a companion resource to the "My demo application" session
-          at Esri Developer & Technology Summit.
-        </span>
-      </calcite-notice>
-      This example illustrates <calcite-link target="_blank" href="#"> a great topic</calcite-link>.
-      <ul>
-        <li>Main point 1.</li>
-        <li>Main point 2.</li>
-        <li>Main point 3.</li>
-      </ul>
-      <calcite-link target="_blank" href="#">Learn more</calcite-link> in the
-      <calcite-link target="_blank" href="#"> documentation</calcite-link>.
-      <hr />
-      <calcite-link target="_blank" href="#">Application source code</calcite-link> is available in the
-      <calcite-link target="_blank" href="https://github.com/EsriDevEvents/">Esri Developer Events GitHub
-        organization</calcite-link>.
-      <hr />
-      <calcite-link target="_blank" href="#">Map data </calcite-link> is sourced from Esri Data and Maps /
-      <calcite-link target="_blank" href="https://livingatlas.arcgis.com/en/home/">ArcGIS Living Atlas of the
-        World</calcite-link>.
-    </div>
-  </calcite-dialog>
+    <!-- Demo template interactive elements -->
+    <calcite-dialog modal id="modal" heading="About this application">
+      <div>
+        <calcite-notice open>
+          <span slot="title"
+            >This demonstration application is a companion resource to the "My
+            demo application" session at Esri Developer & Technology Summit.
+          </span>
+        </calcite-notice>
+        This example illustrates
+        <calcite-link target="_blank" href="#"> a great topic</calcite-link>.
+        <ul>
+          <li>Main point 1.</li>
+          <li>Main point 2.</li>
+          <li>Main point 3.</li>
+        </ul>
+        <calcite-link target="_blank" href="#">Learn more</calcite-link> in the
+        <calcite-link target="_blank" href="#"> documentation</calcite-link>.
+        <hr />
+        <calcite-link target="_blank" href="#"
+          >Application source code</calcite-link
+        >
+        is available in the
+        <calcite-link target="_blank" href="https://github.com/EsriDevEvents/"
+          >Esri Developer Events GitHub organization</calcite-link
+        >.
+        <hr />
+        <calcite-link target="_blank" href="#">Map data </calcite-link> is
+        sourced from Esri Data and Maps /
+        <calcite-link
+          target="_blank"
+          href="https://livingatlas.arcgis.com/en/home/"
+          >ArcGIS Living Atlas of the World</calcite-link
+        >.
+      </div>
+    </calcite-dialog>
 
-  <calcite-sheet id="sheet" display-mode="float" width-scale="m">
-    <calcite-panel heading="Esri Developer & Technology Summit" description="Helpful conference links" closable
-      id="sheet-panel">
-      <calcite-menu layout="vertical" label="2025 Esri Developer & Technology Summit Menu">
-        <calcite-menu-item text="2025 Esri Developer & Technology Summit Overview" icon-end="launch"
-          href="https://www.esri.com/en-us/about/events/devsummit/overview" target="_blank"></calcite-menu-item>
-        <calcite-menu-item text="Esri Developer Events GitHub" icon-end="launch" href="https://github.com/EsriDevEvents"
-          target="_blank"></calcite-menu-item>
-        <calcite-menu-item text="Esri.com" icon-end="launch" href="https://esri.com"
-          target="_blank"></calcite-menu-item>
-      </calcite-menu>
-      <calcite-notice open slot="footer" width="full" scale="s">
-        <span slot="title">Note</span>
-        <span slot="message">This is a demonstration application showcasing platform functionality. While Esri strives
-          to ensure the sample is accurate, it
-          may not reflect implementation behavior in certain environments.</span>
-      </calcite-notice>
-    </calcite-panel>
-  </calcite-sheet>
-</body>
-
+    <calcite-sheet id="sheet" display-mode="float" width-scale="m">
+      <calcite-panel
+        heading="Esri Developer & Technology Summit"
+        description="Helpful conference links"
+        closable
+        id="sheet-panel"
+      >
+        <calcite-menu
+          layout="vertical"
+          label="2026 Esri Developer & Technology Summit Menu"
+        >
+          <calcite-menu-item
+            text="2026 Esri Developer & Technology Summit Overview"
+            icon-end="launch"
+            href="https://www.esri.com/en-us/about/events/devsummit/overview"
+            target="_blank"
+          ></calcite-menu-item>
+          <calcite-menu-item
+            text="Esri Developer Events GitHub"
+            icon-end="launch"
+            href="https://github.com/EsriDevEvents"
+            target="_blank"
+          ></calcite-menu-item>
+          <calcite-menu-item
+            text="Esri.com"
+            icon-end="launch"
+            href="https://esri.com"
+            target="_blank"
+          ></calcite-menu-item>
+        </calcite-menu>
+        <calcite-notice open slot="footer" width="full" scale="s">
+          <span slot="title">Note</span>
+          <span slot="message"
+            >This is a demonstration application showcasing platform
+            functionality. While Esri strives to ensure the sample is accurate,
+            it may not reflect implementation behavior in certain
+            environments.</span
+          >
+        </calcite-notice>
+      </calcite-panel>
+    </calcite-sheet>
+  </body>
 </html>

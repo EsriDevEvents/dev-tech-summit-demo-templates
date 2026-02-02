@@ -1,182 +1,374 @@
 <!doctype html>
 <html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="initial-scale=1,maximum-scale=1,user-scalable=no"
+    />
+    <title>
+      2026 Esri Developer & Technology Summit - Designing Apps with Calcite
+      Design System
+    </title>
 
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no" />
-  <title>2025 Esri Developer & Technology Summit - Designing Apps with Calcite Design System</title>
+    <!-- Calcite import -->
+    <script
+      type="module"
+      src="https://js.arcgis.com/calcite-components/3.3.3/calcite.esm.js"
+    ></script>
 
-  <!-- Calcite import -->
-  <script type="module" src="https://js.arcgis.com/calcite-components/3.2.1/calcite.esm.js"></script>
+    <!-- ArcGIS Maps SDK for JavaScript imports -->
+    <script src="https://js.arcgis.com/4.33/"></script>
+    <link
+      id="jsapi-mode-light"
+      rel="stylesheet"
+      href="https://js.arcgis.com/4.33/esri/themes/light/main.css"
+    />
+    <link
+      disabled
+      id="jsapi-mode-dark"
+      rel="stylesheet"
+      href="https://js.arcgis.com/4.33/esri/themes/dark/main.css"
+    />
+    <script
+      type="module"
+      src="https://js.arcgis.com/map-components/4.33/arcgis-map-components.esm.js"
+    ></script>
 
-  <!-- ArcGIS Maps SDK for JavaScript imports -->
-  <script src="https://js.arcgis.com/4.33/"></script>
-  <link id="jsapi-mode-light" rel="stylesheet" href="https://js.arcgis.com/4.33/esri/themes/light/main.css" />
-  <link disabled id="jsapi-mode-dark" rel="stylesheet" href="https://js.arcgis.com/4.33/esri/themes/dark/main.css" />
-  <script type="module" src="https://js.arcgis.com/map-components/4.33/arcgis-map-components.esm.js"></script>
+    <!-- Demo imports -->
+    <script src="./app.js" defer></script>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
 
-  <!-- Demo imports -->
-  <script src="./app.js" defer></script>
-  <link rel="stylesheet" href="./style.css" />
-</head>
+  <body>
+    <calcite-shell>
+      <calcite-navigation navigation-action slot="header" id="nav">
+        <calcite-navigation-logo
+          href="#"
+          icon="viewshed"
+          alt="Application logo"
+          slot="logo"
+          heading="My demo application"
+          description="Esri Developer & Technology Summit"
+        ></calcite-navigation-logo>
+        <calcite-action-bar
+          layout="horizontal"
+          expand-disabled
+          slot="content-end"
+        >
+          <calcite-action
+            id="toggle-mode"
+            text="Toggle mode"
+            icon="brightness"
+          ></calcite-action>
+          <calcite-action
+            id="toggle-modal"
+            text="About this application"
+            icon="information"
+          ></calcite-action>
+        </calcite-action-bar>
 
-<body>
-  <calcite-shell>
-    <calcite-navigation navigation-action slot="header" id="nav">
-      <calcite-navigation-logo href="#" icon="viewshed" alt="Application logo" slot="logo" heading="My demo application"
-        description="Esri Developer & Technology Summit"></calcite-navigation-logo>
-      <calcite-action-pad layout="horizontal" expand-disabled slot="content-end">
-        <calcite-action id="toggle-mode" text="Toggle mode" icon="brightness"></calcite-action>
-        <calcite-action id="toggle-modal" text="About this application" icon="information"></calcite-action>
-      </calcite-action-pad>
+        <calcite-tooltip
+          placement="bottom"
+          reference-element="toggle-mode"
+          slot="content-end"
+          >Toggle mode</calcite-tooltip
+        >
+        <calcite-tooltip
+          placement="bottom"
+          reference-element="toggle-modal"
+          close-on-click
+          slot="content-end"
+          >About this application</calcite-tooltip
+        >
+      </calcite-navigation>
 
-      <calcite-tooltip placement="bottom" reference-element="toggle-mode" slot="content-end">Toggle
-        mode</calcite-tooltip>
-      <calcite-tooltip placement="bottom" reference-element="toggle-modal" close-on-click slot="content-end">About this
-        application</calcite-tooltip>
-    </calcite-navigation>
+      <calcite-panel>
+        <div class="grid-container">
+          <calcite-panel class="panel-map" heading="Map Panel">
+            <arcgis-map item-id="05e015c5f0314db9a487a9b46cb37eca">
+            </arcgis-map>
+          </calcite-panel>
+          <calcite-panel class="panel-info" heading="Metric Panel 1">
+            <calcite-meter
+              label="Units used"
+              value="5750"
+              low="5000"
+              group-separator
+              unit-label="units"
+              max="10000"
+              high="7500"
+              value-label
+              range-labels
+              fill-type="single"
+              range-label-type="units"
+              value-label-type="units"
+            >
+            </calcite-meter>
+          </calcite-panel>
+          <calcite-panel class="panel-info-2" heading="Metric Panel 2">
+            <calcite-meter
+              label="Hard drive storage"
+              value="800"
+              group-separator
+              unit-label="acres"
+              max="1000"
+              high="750"
+              value-label
+              range-labels
+              range-label-type="units"
+              value-label-type="percent"
+            ></calcite-meter>
+          </calcite-panel>
+          <calcite-panel class="panel-start" heading="Dashboard options">
+            <calcite-action
+              id="toggle-instructions"
+              text="Instructions"
+              icon="lightbulb"
+              slot="header-actions-end"
+            ></calcite-action>
+            <calcite-tooltip
+              placement="bottom"
+              reference-element="toggle-instructions"
+              slot="header-actions-end"
+              >A quick get-going hint about this demo</calcite-tooltip
+            >
 
-    <calcite-panel>
-      <div class="grid-container">
-        <calcite-panel class="panel-map" heading="Map Panel">
-          <arcgis-map item-id="05e015c5f0314db9a487a9b46cb37eca"> </arcgis-map>
-        </calcite-panel>
-        <calcite-panel class="panel-info" heading="Metric Panel 1">
-          <calcite-meter label="Units used" value="5750" low="5000" group-separator unit-label="units" max="10000"
-            high="7500" value-label range-labels fill-type="single" range-label-type="units" value-label-type="units">
-          </calcite-meter>
-        </calcite-panel>
-        <calcite-panel class="panel-info-2" heading="Metric Panel 2">
-          <calcite-meter label="Hard drive storage" value="800" group-separator unit-label="acres" max="1000" high="750"
-            value-label range-labels range-label-type="units" value-label-type="percent"></calcite-meter>
-        </calcite-panel>
-        <calcite-panel class="panel-start" heading="Dashboard options">
-          <calcite-action id="toggle-instructions" text="Instructions" icon="lightbulb"
-            slot="header-actions-end"></calcite-action>
-          <calcite-tooltip placement="bottom" reference-element="toggle-instructions" slot="header-actions-end">A quick
-            get-going hint about this demo</calcite-tooltip>
+            <calcite-block expanded collapsible heading="Map Type">
+              <calcite-chip-group
+                label="demo-group-label"
+                selection-mode="multiple"
+              >
+                <calcite-chip label="Dashboard" value="dashboard"
+                  >Dashboard</calcite-chip
+                >
+                <calcite-chip label="Static Map" value="static-map"
+                  >Static Map</calcite-chip
+                >
+                <calcite-chip label="Video" value="video">Video</calcite-chip>
+                <calcite-chip label="Web Application" selected value="web-app"
+                  >Web Application</calcite-chip
+                >
+                <calcite-chip label="Web Map" value="web-map"
+                  >Web Map</calcite-chip
+                >
+                <calcite-chip label="Website" value="website"
+                  >Website</calcite-chip
+                >
+              </calcite-chip-group>
+            </calcite-block>
 
-          <calcite-block open collapsible heading="Map Type">
-            <calcite-chip-group label="demo-group-label" selection-mode="multiple">
-              <calcite-chip label="Dashboard" value="dashboard">Dashboard</calcite-chip>
-              <calcite-chip label="Static Map" value="static-map">Static Map</calcite-chip>
-              <calcite-chip label="Video" value="video">Video</calcite-chip>
-              <calcite-chip label="Web Application" selected value="web-app">Web Application</calcite-chip>
-              <calcite-chip label="Web Map" value="web-map">Web Map</calcite-chip>
-              <calcite-chip label="Website" value="website">Website</calcite-chip>
-            </calcite-chip-group>
-          </calcite-block>
+            <calcite-block
+              expanded
+              collapsible
+              heading="Industry and theme"
+              style="--calcite-block-content-space: 0"
+            >
+              <calcite-list selection-mode="multiple">
+                <calcite-list-item label="AEC" value="aec" selected>
+                  <calcite-chip
+                    slot="content-end"
+                    label="178 datasets"
+                    scale="s"
+                    >178</calcite-chip
+                  >
+                </calcite-list-item>
+                <calcite-list-item label="Agriculture" value="agriculture">
+                  <calcite-chip slot="content-end" label="31 datasets" scale="s"
+                    >31</calcite-chip
+                  >
+                </calcite-list-item>
+                <calcite-list-item label="Airports" value="airports">
+                  <calcite-chip slot="content-end" label="21 datasets" scale="s"
+                    >21</calcite-chip
+                  >
+                </calcite-list-item>
+                <calcite-list-item label="City / Town" value="cities">
+                  <calcite-chip slot="content-end" label="52 datasets" scale="s"
+                    >52</calcite-chip
+                  >
+                </calcite-list-item>
+                <calcite-list-item
+                  label="Climatology / Meteorology"
+                  value="meterology"
+                  selected
+                >
+                  <calcite-chip
+                    slot="content-end"
+                    label="219 datasets"
+                    scale="s"
+                    >219</calcite-chip
+                  >
+                </calcite-list-item>
+                <calcite-list-item label="Conservation" value="conservation">
+                  <calcite-chip
+                    slot="content-end"
+                    label="114 datasets"
+                    scale="s"
+                    >114</calcite-chip
+                  >
+                </calcite-list-item>
+                <calcite-list-item label="Defense" value="defense">
+                  <calcite-chip
+                    slot="content-end"
+                    label="286 datasets"
+                    scale="s"
+                    >286</calcite-chip
+                  >
+                </calcite-list-item>
+                <calcite-list-item label="Economic Development" value="econ">
+                  <calcite-chip
+                    slot="content-end"
+                    label="145 datasets"
+                    scale="s"
+                    >145</calcite-chip
+                  >
+                </calcite-list-item>
+                <calcite-list-item
+                  label="Emergency Management"
+                  value="em"
+                  selected
+                >
+                  <calcite-chip
+                    slot="content-end"
+                    label="178 datasets"
+                    scale="s"
+                    >178</calcite-chip
+                  >
+                </calcite-list-item>
+                <calcite-list-item
+                  label="Environment and Natural Resources"
+                  value="environment"
+                >
+                  <calcite-chip slot="content-end" label="31 datasets" scale="s"
+                    >31</calcite-chip
+                  >
+                </calcite-list-item>
+                <calcite-list-item label="Financial Services" value="financial">
+                  <calcite-chip slot="content-end" label="21 datasets" scale="s"
+                    >21</calcite-chip
+                  >
+                </calcite-list-item>
+                <calcite-list-item label="Geology" value="geology">
+                  <calcite-chip slot="content-end" label="52 datasets" scale="s"
+                    >52</calcite-chip
+                  >
+                </calcite-list-item>
+                <calcite-list-item label="Health" value="health" selected>
+                  <calcite-chip
+                    slot="content-end"
+                    label="219 datasets"
+                    scale="s"
+                    >219</calcite-chip
+                  >
+                </calcite-list-item>
+                <calcite-list-item label="Higher Education" value="higher-ed">
+                  <calcite-chip
+                    slot="content-end"
+                    label="114 datasets"
+                    scale="s"
+                    >114</calcite-chip
+                  >
+                </calcite-list-item>
+              </calcite-list>
+            </calcite-block>
 
-          <calcite-block open collapsible heading="Industry and theme" style="--calcite-block-padding: 0">
-            <calcite-list selection-mode="multiple">
-              <calcite-list-item label="AEC" value="aec" selected>
-                <calcite-chip slot="content-end" label="178 datasets" scale="s">178</calcite-chip>
-              </calcite-list-item>
-              <calcite-list-item label="Agriculture" value="agriculture">
-                <calcite-chip slot="content-end" label="31 datasets" scale="s">31</calcite-chip>
-              </calcite-list-item>
-              <calcite-list-item label="Airports" value="airports">
-                <calcite-chip slot="content-end" label="21 datasets" scale="s">21</calcite-chip>
-              </calcite-list-item>
-              <calcite-list-item label="City / Town" value="cities">
-                <calcite-chip slot="content-end" label="52 datasets" scale="s">52</calcite-chip>
-              </calcite-list-item>
-              <calcite-list-item label="Climatology / Meteorology" value="meterology" selected>
-                <calcite-chip slot="content-end" label="219 datasets" scale="s">219</calcite-chip>
-              </calcite-list-item>
-              <calcite-list-item label="Conservation" value="conservation">
-                <calcite-chip slot="content-end" label="114 datasets" scale="s">114</calcite-chip>
-              </calcite-list-item>
-              <calcite-list-item label="Defense" value="defense">
-                <calcite-chip slot="content-end" label="286 datasets" scale="s">286</calcite-chip>
-              </calcite-list-item>
-              <calcite-list-item label="Economic Development" value="econ">
-                <calcite-chip slot="content-end" label="145 datasets" scale="s">145</calcite-chip>
-              </calcite-list-item>
-              <calcite-list-item label="Emergency Management" value="em" selected>
-                <calcite-chip slot="content-end" label="178 datasets" scale="s">178</calcite-chip>
-              </calcite-list-item>
-              <calcite-list-item label="Environment and Natural Resources" value="environment">
-                <calcite-chip slot="content-end" label="31 datasets" scale="s">31</calcite-chip>
-              </calcite-list-item>
-              <calcite-list-item label="Financial Services" value="financial">
-                <calcite-chip slot="content-end" label="21 datasets" scale="s">21</calcite-chip>
-              </calcite-list-item>
-              <calcite-list-item label="Geology" value="geology">
-                <calcite-chip slot="content-end" label="52 datasets" scale="s">52</calcite-chip>
-              </calcite-list-item>
-              <calcite-list-item label="Health" value="health" selected>
-                <calcite-chip slot="content-end" label="219 datasets" scale="s">219</calcite-chip>
-              </calcite-list-item>
-              <calcite-list-item label="Higher Education" value="higher-ed">
-                <calcite-chip slot="content-end" label="114 datasets" scale="s">114</calcite-chip>
-              </calcite-list-item>
-            </calcite-list>
-          </calcite-block>
+            <calcite-notice open scale="s" slot="footer">
+              <span slot="title">What is being demonstrated?</span>
+              <span slot="message">
+                This demonstration application showcases
+                <strong>feature x</strong>, <strong>feature y</strong>, and
+                <strong>feature z</strong>, with a small bit of additional
+                context about the demo.
+              </span>
+            </calcite-notice>
+          </calcite-panel>
+        </div>
+      </calcite-panel>
+    </calcite-shell>
 
-          <calcite-notice open scale="s" slot="footer">
-            <span slot="title">What is being demonstrated?</span>
-            <span slot="message">
-              This demonstration application showcases <strong>feature x</strong>, <strong>feature y</strong>, and
-              <strong>feature z</strong>, with a small bit of additional context about the demo.
-            </span>
-          </calcite-notice>
-        </calcite-panel>
+    <!-- Demo template interactive elements -->
+    <calcite-alert open icon="effects" placement="top">
+      <div slot="title">Esri Developer & Technology Summit</div>
+      <div slot="message">Welcome to beautiful Palm Springs!</div>
+    </calcite-alert>
+
+    <calcite-dialog modal id="modal" heading="About this application">
+      <div>
+        <calcite-notice open>
+          <span slot="title"
+            >This demonstration application is a companion resource to the "My
+            demo application" session at Esri Developer & Technology Summit.
+          </span>
+        </calcite-notice>
+        This example illustrates
+        <calcite-link target="_blank" href="#"> a great topic</calcite-link>.
+        <ul>
+          <li>Main point 1.</li>
+          <li>Main point 2.</li>
+          <li>Main point 3.</li>
+        </ul>
+        <calcite-link target="_blank" href="#">Learn more</calcite-link> in the
+        <calcite-link target="_blank" href="#"> documentation</calcite-link>.
+        <hr />
+        <calcite-link target="_blank" href="#"
+          >Application source code</calcite-link
+        >
+        is available in the
+        <calcite-link target="_blank" href="https://github.com/EsriDevEvents/"
+          >Esri Developer Events GitHub organization</calcite-link
+        >.
+        <hr />
+        <calcite-link target="_blank" href="#">Map data </calcite-link> is
+        sourced from Esri Data and Maps /
+        <calcite-link
+          target="_blank"
+          href="https://livingatlas.arcgis.com/en/home/"
+          >ArcGIS Living Atlas of the World</calcite-link
+        >.
       </div>
-    </calcite-panel>
-  </calcite-shell>
+    </calcite-dialog>
 
-  <!-- Demo template interactive elements -->
-  <calcite-alert open icon="effects" placement="top">
-    <div slot="title">Esri Developer & Technology Summit</div>
-    <div slot="message">Welcome to beautiful Palm Springs!</div>
-  </calcite-alert>
-
-  <calcite-dialog modal id="modal" heading="About this application">
-    <div>
-      <calcite-notice open>
-        <span slot="title">This demonstration application is a companion resource to the "My demo application" session
-          at Esri Developer & Technology Summit.
-        </span>
-      </calcite-notice>
-      This example illustrates <calcite-link target="_blank" href="#"> a great topic</calcite-link>.
-      <ul>
-        <li>Main point 1.</li>
-        <li>Main point 2.</li>
-        <li>Main point 3.</li>
-      </ul>
-      <calcite-link target="_blank" href="#">Learn more</calcite-link> in the
-      <calcite-link target="_blank" href="#"> documentation</calcite-link>.
-      <hr />
-      <calcite-link target="_blank" href="#">Application source code</calcite-link> is available in the
-      <calcite-link target="_blank" href="https://github.com/EsriDevEvents/">Esri Developer Events GitHub
-        organization</calcite-link>.
-      <hr />
-      <calcite-link target="_blank" href="#">Map data </calcite-link> is sourced from Esri Data and Maps /
-      <calcite-link target="_blank" href="https://livingatlas.arcgis.com/en/home/">ArcGIS Living Atlas of the
-        World</calcite-link>.
-    </div>
-  </calcite-dialog>
-
-  <calcite-sheet id="sheet" display-mode="float" width-scale="m">
-    <calcite-panel heading="Esri Developer & Technology Summit" description="Helpful conference links" closable
-      id="sheet-panel">
-      <calcite-menu layout="vertical" label="2025 Esri Developer & Technology Summit Menu">
-        <calcite-menu-item text="2025 Esri Developer & Technology Summit Overview" icon-end="launch"
-          href="https://www.esri.com/en-us/about/events/devsummit/overview" target="_blank"></calcite-menu-item>
-        <calcite-menu-item text="Esri Developer Events GitHub" icon-end="launch" href="https://github.com/EsriDevEvents"
-          target="_blank"></calcite-menu-item>
-        <calcite-menu-item text="Esri.com" icon-end="launch" href="https://esri.com"
-          target="_blank"></calcite-menu-item>
-      </calcite-menu>
-      <calcite-notice open slot="footer" width="full" scale="s">
-        <span slot="title">Note</span>
-        <span slot="message">This is a demonstration application showcasing platform functionality. While Esri strives
-          to ensure the sample is accurate, it
-          may not reflect implementation behavior in certain environments.</span>
-      </calcite-notice>
-    </calcite-panel>
-  </calcite-sheet>
-</body>
-
+    <calcite-sheet id="sheet" display-mode="float" width-scale="m">
+      <calcite-panel
+        heading="Esri Developer & Technology Summit"
+        description="Helpful conference links"
+        closable
+        id="sheet-panel"
+      >
+        <calcite-menu
+          layout="vertical"
+          label="2026 Esri Developer & Technology Summit Menu"
+        >
+          <calcite-menu-item
+            text="2026 Esri Developer & Technology Summit Overview"
+            icon-end="launch"
+            href="https://www.esri.com/en-us/about/events/devsummit/overview"
+            target="_blank"
+          ></calcite-menu-item>
+          <calcite-menu-item
+            text="Esri Developer Events GitHub"
+            icon-end="launch"
+            href="https://github.com/EsriDevEvents"
+            target="_blank"
+          ></calcite-menu-item>
+          <calcite-menu-item
+            text="Esri.com"
+            icon-end="launch"
+            href="https://esri.com"
+            target="_blank"
+          ></calcite-menu-item>
+        </calcite-menu>
+        <calcite-notice open slot="footer" width="full" scale="s">
+          <span slot="title">Note</span>
+          <span slot="message"
+            >This is a demonstration application showcasing platform
+            functionality. While Esri strives to ensure the sample is accurate,
+            it may not reflect implementation behavior in certain
+            environments.</span
+          >
+        </calcite-notice>
+      </calcite-panel>
+    </calcite-sheet>
+  </body>
 </html>
