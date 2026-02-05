@@ -12,29 +12,19 @@
     </title>
 
     <!-- Calcite import -->
-    <script
-      type="module"
-      src="https://js.arcgis.com/calcite-components/3.3.3/calcite.esm.js"
-    ></script>
-
     <!-- ArcGIS Maps SDK for JavaScript imports -->
-    <script src="https://js.arcgis.com/4.33/"></script>
+    <script type="module" src="https://jsdev.arcgis.com/5.0/"></script>
     <link
       id="jsapi-mode-light"
       rel="stylesheet"
-      href="https://js.arcgis.com/4.33/esri/themes/light/main.css"
+      href="https://js.arcgis.com/5.0/esri/themes/light/main.css"
     />
     <link
       disabled
       id="jsapi-mode-dark"
       rel="stylesheet"
-      href="https://js.arcgis.com/4.33/esri/themes/dark/main.css"
+      href="https://js.arcgis.com/5.0/esri/themes/dark/main.css"
     />
-    <script
-      type="module"
-      src="https://js.arcgis.com/map-components/4.33/arcgis-map-components.esm.js"
-    ></script>
-
     <!-- Demo imports -->
     <script src="./app.js" defer></script>
     <link rel="stylesheet" href="./style.css" />
@@ -162,7 +152,7 @@
               expanded
               collapsible
               heading="Industry and theme"
-              style="--calcite-block-content-space: 0"
+              style="--calcite-block-padding: 0"
             >
               <calcite-list selection-mode="multiple">
                 <calcite-list-item label="AEC" value="aec" selected>
